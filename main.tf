@@ -1,15 +1,8 @@
-provider "aws" {
-	region = "us-west-2"
+provider "digitalocean" {
 }
 
-resource "aws_vpc" "test" {
-	cidr_block = "10.0.0.0/16"
-
-	tags {
-		Name = "Test"
-	}
+resource "digitalocean_domain" "foobar" {
+	name       = "jen20example.com"
+	ip_address = "192.168.0.10"
 }
 
-output "vpc_id" {
-	value = "${aws_vpc.test.id}"
-}
